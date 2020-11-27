@@ -1,0 +1,721 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;
+
+0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);@import url(https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap);* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #F0F0F0;
+  font-family: 'Lato', sans-serif;
+  padding-top: 85px;
+}
+
+.container {
+  margin: auto;
+  padding: 0 15px;
+  margin-left: 250px;
+}
+
+.btn {
+  padding: 8px 20px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border: 0;
+}
+
+.btn i,
+.btn svg {
+  font-size: 21px;
+}
+
+.btn-create {
+  background: #FFD55C;
+  color: #484848;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.text-orange {
+  color: #dd930a;
+}
+
+.text-green {
+  color: #1ec51e;
+}
+
+.text-blue {
+  color: #11a8ab;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.display-flex.flex-align-center {
+  align-items: center;
+}
+
+.modal-parent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.199);
+  display: none;
+}
+
+.modal-parent.active {
+  display: flex;
+}
+
+.modal-parent .modal {
+  background-color: white;
+  width: 900px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.modal-parent .modal.select-table-modal {
+  padding: 20px;
+}
+
+.modal-parent .modal.select-table-modal .tables {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 30px;
+}
+
+.modal-parent .modal.select-table-modal .tables .table {
+  background-color: #FFD55C;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.modal-parent .modal.select-table-modal .tables .table:hover {
+  background-color: black;
+  color: #FFD55C;
+  transition: 0.4s all;
+}
+
+.table-wrapper {
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table-wrapper .table-header {
+  border-left: 1.5px solid #dee2e6;
+  border-right: 1.5px solid #dee2e6;
+  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.table-wrapper .table-header select.filter {
+  border-radius: 3px;
+  padding: 8px 10px;
+  width: 200px;
+  font-size: 16px;
+}
+
+.table-wrapper .table-header input.search {
+  border-radius: 3px;
+  padding: 8px 10px;
+  width: 200px;
+  font-size: 16px;
+  border: 1px solid gray;
+}
+
+.table-wrapper .table-header .page-title {
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #484848;
+  display: inline-block;
+}
+
+.table-wrapper .table-header .btn-create {
+  margin-left: auto;
+  display: flex;
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    margin-left: 0;
+  }
+}
+
+.header {
+  background-color: #484848;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+.header .header-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 250px;
+}
+
+.header .header-container .menu-btn {
+  position: absolute;
+  left: 20px;
+  top: 22px;
+  cursor: pointer;
+  display: none;
+}
+
+.header .header-container .menu-btn i,
+.header .header-container .menu-btn svg {
+  color: white;
+  font-size: 37px;
+}
+
+.header .header-container .location {
+  text-transform: uppercase;
+  color: #FFD55C;
+  padding: 0 20px;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.header .header-container .location i,
+.header .header-container .location svg {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  margin: 0 3px;
+}
+
+.nav-left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #FFD55C;
+}
+
+.nav-left .menu-btn {
+  position: absolute;
+  left: 20px;
+  top: 22px;
+  cursor: pointer;
+}
+
+.nav-left .menu-btn i,
+.nav-left .menu-btn svg {
+  color: #484848;
+  font-size: 37px;
+}
+
+.nav-left .logo-container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-left .logo-container .logo {
+  width: 60%;
+}
+
+.nav-left ul.nav-links a {
+  text-decoration: none;
+}
+
+.nav-left ul.nav-links li.nav-link {
+  color: #484848;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+.nav-left ul.nav-links li.nav-link i,
+.nav-left ul.nav-links li.nav-link svg {
+  margin-right: 5px;
+}
+
+.nav-left ul.nav-links li.nav-link.active {
+  background-color: #ecbd2e;
+  border-left: 7px solid #484848;
+}
+
+@media only screen and (max-width: 700px) {
+  .header .header-container {
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header .header-container .menu-btn {
+    display: block;
+  }
+
+  .nav-left {
+    display: none;
+    width: 100%;
+  }
+
+  .nav-left .logo-container {
+    margin: 50px 0;
+  }
+
+  .nav-left.active {
+    display: block;
+  }
+}
+
+.orders .order {
+  width: 100%;
+  background-color: whitesmoke;
+  border-left: 8px solid #FFD55C;
+  padding: 5px 10px;
+  height: 80px;
+  margin: 10px 0;
+  border-radius: 3px;
+  display: flex;
+}
+
+.orders .order .table {
+  font-weight: bold;
+}
+
+.orders .order .actions {
+  margin-left: auto;
+  margin-right: 0;
+  height: 100%;
+  padding: 3px;
+  border-radius: 3px;
+  color: #aa0c0c;
+}
+
+.orders .order .actions i,
+.orders .order .actions svg {
+  font-size: 20px;
+}
+
+.orders-container {
+  margin-top: 20px;
+}
+
+.orders-container .table-wrapper table.orders-table {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border: 1.5px solid #dee2e6;
+}
+
+.orders-container .table-wrapper table.orders-table thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.orders-container .table-wrapper table.orders-table thead tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.orders-container .table-wrapper table.orders-table thead tr th {
+  border-color: #e9e9e9;
+  padding: 12px 15px;
+  vertical-align: middle;
+  border: 1.5px solid #dee2e6;
+  text-align: inherit;
+}
+
+.orders-container .table-wrapper table.orders-table tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr td {
+  border-color: #e9e9e9;
+  padding: 12px 15px;
+  vertical-align: middle;
+  border-top: 1px solid #dee2e6;
+  text-align: inherit;
+  font-size: 17px;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr td i,
+.orders-container .table-wrapper table.orders-table tbody tr td svg {
+  font-size: 17px;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr td.td-actions {
+  width: 220px;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr td input.quantity {
+  border: 0.5px solid lightgrey;
+  padding: 6px;
+  width: 100%;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr td .form-delete {
+  display: inline-block;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr td .btn {
+  border: 1px solid black;
+  color: black;
+  font-size: 15px;
+  font-weight: normal;
+  background-color: #fff;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr td .btn.btn-delete {
+  color: #c21538;
+  font-weight: bold;
+  border: 3px solid #c21538;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr td .btn.btn-edit {
+  color: #484848;
+  border: 3px solid #484848;
+  font-weight: bold;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr td input,
+.orders-container .table-wrapper table.orders-table tbody tr td select {
+  border-radius: 3px;
+  padding: 5px;
+  width: 100%;
+}
+
+.orders-container .table-wrapper table.orders-table tbody tr td a.btn,
+.orders-container .table-wrapper table.orders-table tbody tr td input.btn {
+  border-radius: 3px;
+  padding: 8px 10px;
+}
+
+.orders-container .orders-information {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 20px;
+  padding: 20px 0;
+}
+
+.orders-container .orders-information .info {
+  height: 60px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 0 10px;
+}
+
+.orders-container .orders-information .info .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #FFD55C;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.orders-container .orders-information .info h4 {
+  display: inline-block;
+  font-size: 24px;
+}
+
+.orders-container .title {
+  color: white;
+  font-size: 23px;
+  font-weight: bold;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+.orders-container .orders-bar {
+  display: flex;
+  align-items: center;
+}
+
+.orders-container .orders-bar .btn {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 700px) {
+  .orders-container .table-wrapper .table-header {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+  }
+
+  .orders-container .table-wrapper .table-header .page-title {
+    display: none;
+  }
+
+  .orders-container .table-wrapper .table-header form {
+    width: 100%;
+  }
+
+  .orders-container .table-wrapper .table-header form select {
+    width: 100%;
+  }
+
+  .orders-container .table-wrapper .table-header .btn-create {
+    width: 100%;
+  }
+
+  .orders-container .orders-bar .title {
+    display: none;
+  }
+
+  .orders-container .orders-bar .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .orders-container .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .orders-container td form {
+    width: 100%;
+  }
+}
+
+form.create-order-form,
+form.edit-order-form {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+form.create-order-form .page-title,
+form.edit-order-form .page-title {
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #484848;
+  display: inline-block;
+  padding: 6px 0px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+form.create-order-form .form-group,
+form.edit-order-form .form-group {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
+
+form.create-order-form .form-group input,
+form.create-order-form .form-group select,
+form.edit-order-form .form-group input,
+form.edit-order-form .form-group select {
+  border-radius: 3px;
+  padding: 5px;
+}
+
+form.create-order-form .products-container,
+form.edit-order-form .products-container {
+  margin-top: 40px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+form.create-order-form .table-container,
+form.edit-order-form .table-container {
+  overflow-x: auto;
+}
+
+form.create-order-form .table-container table.products-table,
+form.edit-order-form .table-container table.products-table {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border: 1.5px solid #dee2e6;
+}
+
+form.create-order-form .table-container table.products-table thead,
+form.edit-order-form .table-container table.products-table thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+form.create-order-form .table-container table.products-table thead tr,
+form.edit-order-form .table-container table.products-table thead tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+form.create-order-form .table-container table.products-table thead tr th,
+form.edit-order-form .table-container table.products-table thead tr th {
+  border-color: #e9e9e9;
+  padding: 12px 15px;
+  vertical-align: middle;
+  border: 1.5px solid #dee2e6;
+  text-align: inherit;
+}
+
+form.create-order-form .table-container table.products-table tbody,
+form.edit-order-form .table-container table.products-table tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+form.create-order-form .table-container table.products-table tbody tr,
+form.edit-order-form .table-container table.products-table tbody tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+form.create-order-form .table-container table.products-table tbody tr td,
+form.edit-order-form .table-container table.products-table tbody tr td {
+  border-color: #e9e9e9;
+  padding: 12px 15px;
+  vertical-align: middle;
+  border-top: 1px solid #dee2e6;
+  text-align: inherit;
+}
+
+form.create-order-form .table-container table.products-table tbody tr td input.quantity,
+form.edit-order-form .table-container table.products-table tbody tr td input.quantity {
+  border: 0.5px solid lightgrey;
+  padding: 6px;
+  width: 100%;
+}
+
+form.create-order-form .btn-create,
+form.create-order-form .btn-submit,
+form.edit-order-form .btn-create,
+form.edit-order-form .btn-submit {
+  background-color: #FFD55C;
+  padding: 10px 20px;
+  border: 0;
+  font-size: 16px;
+  font-size: 18px;
+}
+
+form.create-order-form .btn-search,
+form.edit-order-form .btn-search {
+  padding: 8px 10px;
+  box-shadow: none;
+  margin-left: 5px;
+  background-color: #FFD55C;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+  form.create-order-form,
+  form.edit-order-form {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  form.create-order-form .form-group input,
+  form.create-order-form .form-group select,
+  form.edit-order-form .form-group input,
+  form.edit-order-form .form-group select {
+    font-size: 18px;
+  }
+
+  form.create-order-form .products-container .table-header,
+  form.edit-order-form .products-container .table-header {
+    display: grid;
+    grid-template-columns: 85% auto;
+    grid-gap: 5px;
+  }
+
+  form.create-order-form .products-container .table-header input.search,
+  form.create-order-form .products-container .table-header .btn-search,
+  form.edit-order-form .products-container .table-header input.search,
+  form.edit-order-form .products-container .table-header .btn-search {
+    width: 100%;
+  }
+
+  form.create-order-form .products-container .table-header .btn-search,
+  form.edit-order-form .products-container .table-header .btn-search {
+    margin-left: 0;
+  }
+
+  form.create-order-form .table-container table.products-table,
+  form.edit-order-form .table-container table.products-table {
+    background-color: white;
+  }
+
+  form.create-order-form .table-container table.products-table tbody tr td input.quantity,
+  form.edit-order-form .table-container table.products-table tbody tr td input.quantity {
+    border: 1px solid lightgrey;
+    padding: 6px;
+    width: 100%;
+    border-radius: 3px;
+    font-size: 20px;
+    text-align: center;
+    width: 40px;
+  }
+
+  form.create-order-form .form-group,
+  form.edit-order-form .form-group {
+    grid-template-columns: 100%;
+  }
+
+  form.create-order-form input[type=number],
+  form.edit-order-form input[type=number] {
+    width: 100%;
+  }
+
+  form.create-order-form .submit,
+  form.edit-order-form .submit {
+    width: 100%;
+    border-radius: 0;
+    padding: 12px 15px;
+  }
+}
+
