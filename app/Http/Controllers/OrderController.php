@@ -19,20 +19,27 @@ class OrderController extends Controller
         $data['tables'] = Table::all();
 
         if($request->view === "waiter") {
-            return view('orders.waiter', $data);
+            return view('orders.waiter.index', $data);
         } elseif($request->view === "bartender") {
-            return view('orders.bartender', $data);
+            return view('orders.bartender.index', $data);
+        } elseif($request->view === "customer") {
+            return view('orders.customer.index', $data);
         }
     }
 
-    public function create() {
+    public function create(Request $request) {
         $search = \Request::get('search');
 
         $data['products'] = Product::where('name', 'like', '%'.$search.'%')->get();
         $data['tables'] = Table::all();
+        $data['table'] = Table::find($request->table_id);
         $data['employees'] = Employee::with('Role')->get();
 
-        return view('orders.create', $data);
+        if ($request->view === "customer") {
+            return view('orders.customer.create', $data);
+        } elseif($request->view === "waiter") {
+            return view('orders.waiter.create', $data);
+        }
     }
 
     public function edit(Request $request) {
@@ -52,7 +59,7 @@ class OrderController extends Controller
 
         $data['selected_products'] = $selected_products;
 
-        return view('orders.edit', $data);
+        return view('orders.waiter.edit', $data);
     }
 
     public function store(Request $request)

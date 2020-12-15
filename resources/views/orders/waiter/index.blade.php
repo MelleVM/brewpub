@@ -55,7 +55,7 @@
     <div class="modal select-table-modal">
         <div class="tables">
             @foreach($tables as $table)
-            <a href="{{route('orders.create', $table->id)}}" class="table">{{$table->number}}</a>
+            <a href="{{route('orders.create', [$table->id, "waiter"])}}" class="table">{{$table->number}}</a>
             @endforeach
         </div>
     </div>

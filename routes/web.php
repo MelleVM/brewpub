@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 // Route::get('/orders/waiter', [OrderController::class, 'index'])->name('orders.waiter');
 Route::get('/orders/view/{view}', [OrderController::class, 'index'])->name('orders');
-Route::get('/orders/create/{table_id}', [OrderController::class, 'create'])->name('orders.create');
+Route::get('/orders/create/{table_id}/{view}', [OrderController::class, 'create'])->name('orders.create');
 Route::get('/orders/{id}', [OrderController::class, 'edit'])->name('orders.edit');
 Route::post('/orders/store', [OrderController::class, 'store'])->name('orders.store');
 Route::delete('/orders/{id}', [OrderController::class, 'delete'])->name('orders.delete');

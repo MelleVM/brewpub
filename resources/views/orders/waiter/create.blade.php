@@ -4,8 +4,9 @@
 
 <div class="container create-order-container">
     {!! Form::open(['method' => 'GET', 'id' => 'search-form', 'url' => route(Route::currentRouteName(),
-    Route::current()->parameters()['table_id'] ), 'role'=>'search']) !!}
+    Route::current()->parameters() ), 'role'=>'search']) !!}
     {!! Form::close() !!}
+
 
     {{ Form::open(['url' => route('orders.store'), 'class' => 'create-order-form']) }}
     @csrf

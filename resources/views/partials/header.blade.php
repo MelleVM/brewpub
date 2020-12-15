@@ -13,6 +13,8 @@
             ORDERS <i class="ri-arrow-right-s-line"></i> WAITER
             @elseif(Route::currentRouteName() === 'orders' && in_array("bartender", Route::current()->parameters()))
             ORDERS <i class="ri-arrow-right-s-line"></i> BARTENDER
+            @elseif(Route::currentRouteName() === 'orders' && in_array("customer", Route::current()->parameters()))
+            ORDERS <i class="ri-arrow-right-s-line"></i> CUSTOMER
             @endif
         </div>
     </div>
@@ -35,6 +37,10 @@
         <a href="{{ route('orders', "bartender") }}">
             <li class="nav-link @if(Route::currentRouteName() === 'orders' && Route::current()->
                 parameters()['view'] === "bartender") active @endif"><i class="ri-file-list-line"></i> Bartender View</li>
+        </a>
+        <a href="{{ route('orders', "customer") }}">
+            <li class="nav-link @if(Route::currentRouteName() === 'orders' && Route::current()->
+                parameters()['view'] === "customer") active @endif"><i class="ri-file-list-line"></i> Customer View</li>
         </a>
         {{-- <li class="nav-link create-order-btn @if(Route::currentRouteName() === 'orders.create') active @endif"><i
                 class="ri-add-line"></i> Create Order</li> --}}
